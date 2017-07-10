@@ -14,6 +14,7 @@ RUN dnf install -y @virtualization
 RUN dnf install -y libvirt-devel
 RUN dnf install -y libyaml-devel
 RUN ssh-keygen -f /root/.ssh/id_rsa -t rsa -N ''
+RUN pip install requests==2.18.1
 RUN git clone -b libvirt_cloudconfig https://github.com/samvarankashyap/linch-pin
 WORKDIR "/linch-pin"
 RUN echo "$PWD"
