@@ -12,6 +12,7 @@ RUN dnf install -y openssl-devel
 RUN dnf install -y openssh-server openssh-clients
 RUN dnf install -y @virtualization
 RUN dnf install -y libvirt-devel
+RUN dnf install -y libyaml-devel
 RUN ssh-keygen -f /root/.ssh/id_rsa -t rsa -N ''
 RUN git clone -b libvirt_cloudconfig https://github.com/samvarankashyap/linch-pin
 WORKDIR "/linch-pin"
