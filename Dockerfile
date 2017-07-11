@@ -10,7 +10,8 @@ RUN dnf install -y git python-pip \
                        openssl-devel \
                        openssh-server \
                        openssh-clients \
-                       libyaml-devel
+                       libyaml-devel \
+                       python-lxml
 RUN dnf groupinstall -y "Development Tools"
 RUN dnf install -y @virtualization
 RUN dnf install -y libvirt-devel
