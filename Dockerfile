@@ -1,8 +1,6 @@
 FROM fedora 
 MAINTAINER Samvaran Kashyap (srallaba@redhat.com)
-#RUN echo "Hello docker!"
-RUN dnf update -y
-RUN dnf install -y git python-pip \
+RUN dnf update -y && dnf install -y git python-pip \
                        libselinux-python \
                        python-devel \
                        libffi-devel \
@@ -11,10 +9,10 @@ RUN dnf install -y git python-pip \
                        openssh-server \
                        openssh-clients \
                        libyaml-devel \
-                       python-lxml
+                       python-lxml \
+                       libvirt-devel 
 RUN dnf groupinstall -y "Development Tools"
-RUN dnf install -y @virtualization
-RUN dnf install -y libvirt-devel
+RUN dnf install -y @virtualization 
 RUN ssh-keygen -f /root/.ssh/id_rsa -t rsa -N ''
 RUN printf "Host *\n    StrictHostKeyChecking no" > /root/.ssh/config
 RUN pip install requests==2.18.1
