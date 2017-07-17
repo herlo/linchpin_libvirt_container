@@ -13,7 +13,7 @@ RUN dnf install -y git python-pip \
                        libvirt-devel \
                        gcc \
                        rpm-build \
-                       && RUN dnf install -y @virtualization 
+                       && dnf install -y @virtualization 
 RUN ssh-keygen -f /root/.ssh/id_rsa -t rsa -N ''
 RUN printf "Host *\n    StrictHostKeyChecking no" > /root/.ssh/config
 RUN pip install requests==2.18.1
