@@ -1,6 +1,6 @@
 FROM fedora 
 MAINTAINER Samvaran Kashyap (srallaba@redhat.com)
-RUN dnf update -y && dnf install -y git python-pip \
+RUN dnf install -y git python-pip \
                        libselinux-python \
                        python-devel \
                        libffi-devel \
@@ -10,9 +10,10 @@ RUN dnf update -y && dnf install -y git python-pip \
                        openssh-clients \
                        libyaml-devel \
                        python-lxml \
-                       libvirt-devel 
-RUN dnf groupinstall -y "Development Tools"
-RUN dnf install -y @virtualization 
+                       libvirt-devel \
+                       gcc \
+                       rpm-build \
+                       && RUN dnf install -y @virtualization 
 RUN ssh-keygen -f /root/.ssh/id_rsa -t rsa -N ''
 RUN printf "Host *\n    StrictHostKeyChecking no" > /root/.ssh/config
 RUN pip install requests==2.18.1
