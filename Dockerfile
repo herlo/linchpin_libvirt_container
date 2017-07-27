@@ -1,6 +1,6 @@
 FROM fedora 
 MAINTAINER Samvaran Kashyap (srallaba@redhat.com)
-RUN dnf install -y git python-pip \
+RUN dnf install -y git net-tools python-pip \
                        libselinux-python \
                        python-devel \
                        libffi-devel \
